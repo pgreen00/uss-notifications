@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private platform:Platform, private notifications:NotificationService) {
+    this.platform.ready().then(() => {
+      this.notifications.init();
+    });
+  }
 }
