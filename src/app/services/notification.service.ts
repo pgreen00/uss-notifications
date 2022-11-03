@@ -4,6 +4,7 @@ import { PushNotifications } from '@capacitor/push-notifications';
 const addListeners = async () => {
   await PushNotifications.addListener('registration', token => {
     console.info('Registration token: ', token.value);
+    console.info('Registration token length: ', token.value.length);
   });
 
   await PushNotifications.addListener('registrationError', err => {
